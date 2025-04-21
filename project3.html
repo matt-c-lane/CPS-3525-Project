@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Guess Game - Character Frequency Analyzer</title>
+    </head>
+    <body>
+    <h1>Guess Game: Letter Frequency Challenge</h1>
+    <form action="/cgi-bin/guess_game.cgi" method="post" enctype="multipart/form-data">
+        
+        <!-- File upload -->
+        <label for="inputFile">Upload your character grid file:</label>
+        <input type="file" name="inputFile" id="inputFile" required><br><br>
+
+        <!-- Dropdown -->
+        <label for="guessLetter">Select the character you wish to guess:</label>
+        <select name="guessLetter" id="guessLetter" required>
+        <option value="">--Select--</option>
+        <!-- A-Z options -->
+        <script>
+            for (let i = 65; i <= 90; i++) {
+            document.write(`<option value="${String.fromCharCode(i)}">${String.fromCharCode(i)}</option>`);
+            }
+        </script>
+        </select><br><br>
+
+        <!-- Radio buttons -->
+        <p>What are you guessing?</p>
+        <input type="radio" name="guessType" value="max" id="guessMax" required>
+        <label for="guessMax">Most frequent character</label><br>
+        <input type="radio" name="guessType" value="min" id="guessMin">
+        <label for="guessMin">Least frequent character</label><br><br>
+
+        <!-- Numeric input -->
+        <label for="guessCount">Guess how many times the character appears:</label>
+        <input type="number" name="guessCount" id="guessCount" min="1" max="1000" required><br><br>
+
+        <!-- Submit -->
+        <input type="submit" value="Submit Guess">
+
+    </form>
+    </body>
+</html>
